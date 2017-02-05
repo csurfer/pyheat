@@ -94,8 +94,8 @@ class PyHeat(object):
         # Creating an array of data points. As the profile keys are 1 indexed
         # we should range from 1 to line_count + 1 and not 0 to line_count.
         arr = []
-        for line_num in xrange(1, self.pyfile.length + 1):
-            if line_profiles.has_key(line_num):
+        for line_num in range(1, self.pyfile.length + 1):
+            if line_num in line_profiles:
                 arr.append([line_profiles[line_num][-1]])
             else:
                 arr.append([0.0])
