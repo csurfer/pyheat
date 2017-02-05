@@ -10,7 +10,7 @@ and still get a gist of the hot zones in our code.
 
 So, instead of presenting the data in tabular form, if presented as a heatmap visualization, it makes comprehending the time distribution in the given program much easier and quicker. That is exactly what is being done here !
 
-![pyheatmap](readme-res/pyheatmap.png)
+![pyheatmap](http://i.imgur.com/QdEpDxO.png)
 
 ## Features
 
@@ -24,24 +24,31 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 
 With `pip` installed on your system, execute
 
+### Using pip
+
+```bash
+pip install py-heat
+```
+
+### Directly from the repository
+
 ```bash
 git clone https://github.com/csurfer/pyheat.git
-cd pyheat && pip install -r requirements.txt
+python pyheat/setup.py install
 ```
 
 ## Usage
 
 To view heatmap of a python file use:
+
 ```bash
-python pyheat --pyfile <path_to_python_file>
+pyheat --pyfile <path_to_python_file>
 ```
-You can test it out using:
-```bash
-python pyheat --pyfile test_program.py # Provided in this repository.
-```
+
 To view help use:
+
 ```bash
-python pyheat --help
+pyheat --help
 ```
 
 ## Contributing

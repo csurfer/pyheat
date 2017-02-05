@@ -1,5 +1,9 @@
+*.pyc
 .Python
 bin/
 include/
 lib/
 pip-selfcheck.json
+py_heat.egg-info/
+dist/
+pyheat/__pycache__/
