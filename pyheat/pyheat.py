@@ -127,8 +127,16 @@ class PyHeat(object):
         # Set plot y-axis label.
         plt.ylabel("Line Number")
         # Annotate each cell with lines in file in order.
+        max_time_spent_on_a_line = max(self.pyfile.data)
         for i, line in enumerate(self.pyfile.lines):
-            plt.text(0.0, i + 0.5, line, ha='left', va='center')
+            # In order to ensure easy readability of the code, we need to invert
+            # colour of text display for darker colours which correspond to
+            # higher amount of time spent on the line.
+            if self.pyfile.data[i] >= 0.7 * max_time_spent_on_a_line:
+                color = (1.0, 1.0, 1.0)  # White text
+            else:
+                color = (0.0, 0.0, 0.0)  # Black text
+            plt.text(0.0, i + 0.5, line, ha='left', va='center', color=color)
 
         # Define legend
         cbar = plt.colorbar(heatmap)
