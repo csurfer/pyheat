@@ -10,7 +10,7 @@ and still get a gist of the hot zones in our code.
 
 So, instead of presenting the data in tabular form, if presented as a heatmap visualization, it makes comprehending the time distribution in the given program much easier and quicker. That is exactly what is being done here !
 
-![pyheatmap](http://i.imgur.com/QdEpDxO.png)
+![pyheatmap](http://i.imgur.com/qOeXUPR.png)
 
 ## Features
 

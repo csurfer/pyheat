@@ -78,4 +78,4 @@ Pull requests are most welcome.
 .. |Licence| image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://raw.githubusercontent.com/csurfer/pyheat/master/LICENSE
 
-.. |Demo| image:: http://i.imgur.com/QdEpDxO.png
+.. |Demo| image:: http://i.imgur.com/qOeXUPR.png
