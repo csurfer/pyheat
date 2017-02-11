@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Class and Method definitions to view python file as a heatmap highlighting
-   the most time consuming parts of the file.
-
-   Usage:
-
-   To get help: `python pyheat.py --help`
-   For heatmap: `python pyheat.py --pyfile <filename>`
 """
-import argparse
+pyheat.pyheat
+~~~~~~~~~~~
+
+Class definitions to view python file as a heatmap highlighting
+the most time consuming parts of the file.
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pprofile
-
-__author__ = 'Vishwas B Sharma'
-__author_email__ = 'sharma.vishwas88@gmail.com'
-__version__ = '0.0.1'
 
 
 class PyHeat(object):
@@ -55,9 +49,16 @@ class PyHeat(object):
         # Create heatmap.
         self.__create_heatmap_plot()
 
-    def show_heatmap(self):
-        """Method to actually display the heatmap created."""
-        plt.show()
+    def show_heatmap(self, blocking=True):
+        """Method to actually display the heatmap created.
+
+            @param blocking: When set to False makes an unblocking plot show.
+        """
+        plt.show(block=blocking)
+
+    def close_heatmap(self):
+        """Method to close the heatmap display created."""
+        plt.close('all')
 
     def __profile_file(self):
         """Method used to profile the given file line by line."""
@@ -140,22 +141,3 @@ class PyHeat(object):
         # Define legend
         cbar = plt.colorbar(heatmap)
         cbar.set_label('# of seconds')
-
-
-def main():
-    """Starting point for the program execution."""
-    # Create command line parser.
-    parser = argparse.ArgumentParser()
-    # Adding command line arguments.
-    parser.add_argument('--pyfile', help='File to be profiled.', default=None)
-    # Parse command line arguments.
-    arguments = parser.parse_args()
-
-    # Core functionality.
-    pyheat = PyHeat(arguments.pyfile)
-    pyheat.create_heatmap()
-    pyheat.show_heatmap()
-
-
-if __name__ == '__main__':
-    main()
