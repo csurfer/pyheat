@@ -1,6 +1,8 @@
 # pyheat
 
+[![Build Status](https://travis-ci.org/csurfer/pyheat.svg?branch=master)](https://travis-ci.org/csurfer/pyheat)
 [![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/csurfer/pyheat/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/csurfer/pyheat/badge.svg?branch=master)](https://coveralls.io/github/csurfer/pyheat?branch=master)
 
 Profilers are extremely helpful tools. They help us dig deep into code, find and
 understand performance bottlenecks. But sometimes we just want to lay back, relax
@@ -39,7 +41,7 @@ python pyheat/setup.py install
 
 ## Usage
 
-To view heatmap of a python file use:
+### As a command
 
 ```bash
 pyheat --pyfile <path_to_python_file>
@@ -49,6 +51,14 @@ To view help use:
 
 ```bash
 pyheat --help
+```
+
+### As a module
+```python
+from pyheat import PyHeat
+ph = PyHeat(<file_path>)
+ph.create_heatmap()
+ph.show_heatmap()
 ```
 
 ## Contributing

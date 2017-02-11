@@ -1,7 +1,7 @@
 pyheat
 ======
 
-|Licence|
+|Build Status| |Licence| |Coverage Status|
 
 Profilers are extremely helpful tools. They help us dig deep into code,
 find and understand performance bottlenecks. But sometimes we just want
@@ -48,7 +48,8 @@ Directly from the repository
 Usage
 -----
 
-To view heatmap of a python file use:
+As a command
+~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -59,6 +60,16 @@ To view help use:
 .. code:: bash
 
     pyheat --help
+
+As a module
+~~~~~~~~~~~
+
+.. code:: python
+
+    from pyheat import PyHeat
+    ph = PyHeat(<file_path>)
+    ph.create_heatmap()
+    ph.show_heatmap()
 
 Contributing
 ------------
@@ -75,7 +86,13 @@ Pull requests are most welcome.
 
 .. _issue tracker: https://github.com/csurfer/pyheat/issues
 
+.. |Build Status| image:: https://travis-ci.org/csurfer/pyheat.svg?branch=master
+    :target: https://travis-ci.org/csurfer/pyheat
+
 .. |Licence| image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://raw.githubusercontent.com/csurfer/pyheat/master/LICENSE
+
+.. |Coverage Status| image:: https://coveralls.io/repos/github/csurfer/pyheat/badge.svg?branch=master
+    :target: https://coveralls.io/github/csurfer/pyheat?branch=master
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
