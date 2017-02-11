@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
 """Class and Method definitions to view python file as a heatmap highlighting
    the most time consuming parts of the file.
 
@@ -129,9 +128,9 @@ class PyHeat(object):
         # Annotate each cell with lines in file in order.
         max_time_spent_on_a_line = max(self.pyfile.data)
         for i, line in enumerate(self.pyfile.lines):
-            # In order to ensure easy readability of the code, we need to invert
-            # colour of text display for darker colours which correspond to
-            # higher amount of time spent on the line.
+            # In order to ensure easy readability of the code, we need to
+            # invert colour of text display for darker colours which
+            # correspond to higher amount of time spent on the line.
             if self.pyfile.data[i] >= 0.7 * max_time_spent_on_a_line:
                 color = (1.0, 1.0, 1.0)  # White text
             else:
