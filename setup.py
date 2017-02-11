@@ -34,9 +34,10 @@ setup(
     packages=['pyheat'],
     entry_points={
         'console_scripts': [
-            'pyheat=pyheat.pyheat:main',
+            'pyheat=pyheat.commandline:main',
         ],
     },
+    test_suite='tests',
     keywords='heatmap matplotlib profiling python',
     classifiers=[
         # Intended Audience.
