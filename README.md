@@ -45,11 +45,6 @@ python pyheat/setup.py install
 
 ```bash
 pyheat --pyfile <path_to_python_file>
-```
-
-To view help use:
-
-```bash
 pyheat --help
 ```
 

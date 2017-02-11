@@ -54,11 +54,6 @@ As a command
 .. code:: bash
 
     pyheat --pyfile <path_to_python_file>
-
-To view help use:
-
-.. code:: bash
-
     pyheat --help
 
 As a module
