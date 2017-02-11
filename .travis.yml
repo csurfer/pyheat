@@ -1,0 +1,20 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+# Command to install dependencies.
+install:
+  - "pip install -r requirements.txt"
+  - "pip install coveralls"
+# Configure a headless display to test plot generation
+before_script:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
+# Command to run tests.
+script:
+  - "coverage run --source=pyheat setup.py test"
+after_success:
+  - "coveralls"
