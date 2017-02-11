@@ -8,7 +8,7 @@ Usage of PyHeat class:
     >>> from pyheat import PyHeat
     >>> ph = PyHeat(<file_path>)
     >>> ph.create_heatmap()
-    >>> ph.show_hearmap()
+    >>> ph.show_heatmap()
 
 :copyright: (c) 2017 by Vishwas B Sharma.
 :license: MIT, see LICENSE for more details.
