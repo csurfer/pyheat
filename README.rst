@@ -19,11 +19,11 @@ done here !
 Features
 --------
 
-:star: Simple CLI interface.
+* Simple CLI interface.
 
-:star: No complicated setup.
+* No complicated setup.
 
-:star: Heatmap visualization to view hot zones in code.
+* Heatmap visualization to view hot zones in code.
 
 Setup
 -----

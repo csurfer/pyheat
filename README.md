@@ -16,11 +16,11 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 
 ## Features
 
-:star: Simple CLI interface.
+* Simple CLI interface.
 
-:star: No complicated setup.
+* No complicated setup.
 
-:star: Heatmap visualization to view hot zones in code.
+* Heatmap visualization to view hot zones in code.
 
 ## Setup
 
