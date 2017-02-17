@@ -49,12 +49,15 @@ class PyHeat(object):
         # Create heatmap.
         self.__create_heatmap_plot()
 
-    def show_heatmap(self, blocking=True):
+    def show_heatmap(self, blocking=True, output_file=None):
         """Method to actually display the heatmap created.
 
             @param blocking: When set to False makes an unblocking plot show.
         """
-        plt.show(block=blocking)
+        if output_file is None:
+            plt.show(block=blocking)
+        else:
+            plt.savefig(output_file)
 
     def close_heatmap(self):
         """Method to close the heatmap display created."""
