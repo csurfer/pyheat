@@ -28,7 +28,8 @@ Features
 Setup
 -----
 
-With ``pip`` installed on your system, execute
+NOTE: Installation using ``pip`` would correspond to the latest release. Github repo on the other hand contains released features/bug
+fixes and the unreleased changes. Refer to `HISTORY.rst`_ for more information.
 
 Using pip
 ~~~~~~~~~
@@ -91,3 +92,5 @@ Pull requests are most welcome.
     :target: https://coveralls.io/github/csurfer/pyheat?branch=master
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
+
+.. _HISTORY.rst: https://github.com/csurfer/pyheat/HISTORY.rst

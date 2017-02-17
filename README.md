@@ -24,7 +24,8 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 
 ## Setup
 
-With `pip` installed on your system, execute
+NOTE: Installation using `pip` would correspond to the latest release. Github repo on the other hand contains released features/bug fixes
+and the unreleased changes. Refer to [HISTORY.rst](HISTORY.rst) for more information.
 
 ### Using pip
 
