@@ -93,4 +93,4 @@ Pull requests are most welcome.
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
 
-.. _HISTORY.rst: https://github.com/csurfer/pyheat/HISTORY.rst
+.. _HISTORY.rst: https://github.com/csurfer/pyheat/blob/master/HISTORY.rst
