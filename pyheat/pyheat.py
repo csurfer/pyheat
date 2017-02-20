@@ -49,12 +49,15 @@ class PyHeat(object):
         # Create heatmap.
         self.__create_heatmap_plot()
 
-    def show_heatmap(self, blocking=True):
+    def show_heatmap(self, blocking=True, output_file=None):
         """Method to actually display the heatmap created.
 
             @param blocking: When set to False makes an unblocking plot show.
         """
-        plt.show(block=blocking)
+        if output_file is None:
+            plt.show(block=blocking)
+        else:
+            plt.savefig(output_file)
 
     def close_heatmap(self):
         """Method to close the heatmap display created."""
@@ -106,7 +109,9 @@ class PyHeat(object):
     def __create_heatmap_plot(self):
         """Method to actually create the heatmap from profile stats."""
         # Define the heatmap plot.
-        _, ax = plt.subplots()
+        height = len(self.pyfile.lines)/3
+        width = max(map(lambda x: len(x), self.pyfile.lines))/8
+        _, ax = plt.subplots(figsize=(width, height))
         heatmap = ax.pcolor(self.pyfile.data, cmap='OrRd')
 
         # X Axis
