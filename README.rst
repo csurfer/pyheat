@@ -25,11 +25,14 @@ Features
 
 * Heatmap visualization to view hot zones in code.
 
+* Ability to export the heatmap as an image file.
+
 Setup
 -----
 
-NOTE: Installation using ``pip`` would correspond to the latest release. Github repo on the other hand contains released features/bug
-fixes and the unreleased changes. Refer to `HISTORY.rst`_ for more information.
+NOTE: Installation using ``pip`` would correspond to the latest release. Github
+repo on the other hand contains released features/bug fixes and the unreleased
+changes. Refer to `HISTORY.rst`_ for more information.
 
 Using pip
 ~~~~~~~~~
@@ -54,7 +57,10 @@ As a command
 
 .. code:: bash
 
-    pyheat --pyfile <path_to_python_file>
+    # To view the heatmap.
+    pyheat <path_to_python_file>
+    # To output the heatmap as a file.
+    pyheat <path_to_python_file> --out image_file.png
     pyheat --help
 
 As a module
@@ -65,7 +71,10 @@ As a module
     from pyheat import PyHeat
     ph = PyHeat(<file_path>)
     ph.create_heatmap()
+    # To view the heatmap.
     ph.show_heatmap()
+    # To output the heatmap as a file.
+    ph.show_heatmap('image_file.png')
 
 Contributing
 ------------
