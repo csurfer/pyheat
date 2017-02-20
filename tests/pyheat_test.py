@@ -4,7 +4,7 @@
 pyheat tests
 ~~~~~~~~~~
 
-    Usage from git root:
+Usage from git root:
 
     >>> python setup.py test
 """

@@ -53,6 +53,9 @@ class PyHeat(object):
         """Method to actually display the heatmap created.
 
             @param blocking: When set to False makes an unblocking plot show.
+            @param output_file: If not None the heatmap image is output to this
+            file. Supported formats: (eps, pdf, pgf, png, ps, raw, rgba, svg,
+            svgz)
         """
         if output_file is None:
             plt.show(block=blocking)
@@ -109,8 +112,8 @@ class PyHeat(object):
     def __create_heatmap_plot(self):
         """Method to actually create the heatmap from profile stats."""
         # Define the heatmap plot.
-        height = len(self.pyfile.lines)/3
-        width = max(map(lambda x: len(x), self.pyfile.lines))/8
+        height = len(self.pyfile.lines) / 3
+        width = max(map(lambda x: len(x), self.pyfile.lines)) / 8
         _, ax = plt.subplots(figsize=(width, height))
         heatmap = ax.pcolor(self.pyfile.data, cmap='OrRd')
 
