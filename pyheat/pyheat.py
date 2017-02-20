@@ -109,7 +109,9 @@ class PyHeat(object):
     def __create_heatmap_plot(self):
         """Method to actually create the heatmap from profile stats."""
         # Define the heatmap plot.
-        _, ax = plt.subplots()
+        height = len(self.pyfile.lines)/3
+        width = max(map(lambda x: len(x), self.pyfile.lines))/8
+        _, ax = plt.subplots(figsize=(width, height))
         heatmap = ax.pcolor(self.pyfile.data, cmap='OrRd')
 
         # X Axis
