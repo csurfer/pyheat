@@ -9,11 +9,12 @@ pyheat as a command
    >>> pyheat --help
 usage: pyheat [-h] [-o OUT] pyfile
 
+positional arguments:
+  pyfile             Python file to be profiled
 
 optional arguments:
   -h, --help         show this help message and exit
   -o OUT, --out OUT  Output file
-  --pyfile PYFILE    Python file to be profiled
 
    >>> pyheat <filename>
    # Displays the heatmap for the file.
@@ -30,7 +31,7 @@ def main():
     parser = argparse.ArgumentParser()
     # Adding command line arguments.
     parser.add_argument('-o', '--out', help='Output file', default=None)
-    parser.add_argument('--pyfile', help='Python file to be profiled', default=None)
+    parser.add_argument('pyfile', help='Python file to be profiled', default=None)
     # Parse command line arguments.
     arguments = parser.parse_args()
     if arguments.pyfile is not None:
