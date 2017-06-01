@@ -1,7 +1,7 @@
 pyheat
 ======
 
-|Build Status| |Licence| |Coverage Status|
+|pypiv| |pyv| |Licence| |Build Status| |Coverage Status|
 
 Profilers are extremely helpful tools. They help us dig deep into code,
 find and understand performance bottlenecks. But sometimes we just want
@@ -103,3 +103,9 @@ Pull requests are most welcome.
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
 
 .. _HISTORY.rst: https://github.com/csurfer/pyheat/blob/master/HISTORY.rst
+
+.. |pypiv| image:: https://img.shields.io/pypi/v/py-heat.svg
+   :target: https://pypi.python.org/pypi/py-heat
+
+.. |pyv| image:: https://img.shields.io/pypi/pyversions/py-heat.svg
+   :target: https://pypi.python.org/pypi/py-heat
