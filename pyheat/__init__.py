@@ -23,7 +23,7 @@ Usage of PyHeat class:
 """
 
 __title__ = 'pyheat'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __author__ = 'Vishwas B Sharma'
 __author_email__ = 'sharma.vishwas88@gmail.com'
 __license__ = 'MIT'

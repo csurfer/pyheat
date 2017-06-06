@@ -17,7 +17,7 @@ setup(
     name='py-heat',
 
     # Details
-    version='0.0.1',
+    version='0.0.2',
     description='pprofile + matplotlib = Python program profiled as an' +
     ' awesome heatmap!',
     long_description=long_description,

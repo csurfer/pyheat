@@ -32,7 +32,7 @@ Setup
 
 NOTE: Installation using ``pip`` would correspond to the latest release. Github
 repo on the other hand contains released features/bug fixes and the unreleased
-changes. Refer to `HISTORY.rst`_ for more information.
+changes. Refer to `CHANGELOG.rst`_ for more information.
 
 Using pip
 ~~~~~~~~~
@@ -102,7 +102,7 @@ Pull requests are most welcome.
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
 
-.. _HISTORY.rst: https://github.com/csurfer/pyheat/blob/master/HISTORY.rst
+.. _CHANGELOG.rst: https://github.com/csurfer/pyheat/blob/master/CHANGELOG.rst
 
 .. |pypiv| image:: https://img.shields.io/pypi/v/py-heat.svg
    :target: https://pypi.python.org/pypi/py-heat
