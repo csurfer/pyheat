@@ -30,10 +30,6 @@ Features
 Setup
 -----
 
-NOTE: Installation using ``pip`` would correspond to the latest release. Github
-repo on the other hand contains released features/bug fixes and the unreleased
-changes. Refer to `CHANGELOG.rst`_ for more information.
-
 Using pip
 ~~~~~~~~~
 
@@ -101,8 +97,6 @@ Pull requests are most welcome.
     :target: https://coveralls.io/github/csurfer/pyheat?branch=master
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
-
-.. _CHANGELOG.rst: https://github.com/csurfer/pyheat/blob/master/CHANGELOG.rst
 
 .. |pypiv| image:: https://img.shields.io/pypi/v/py-heat.svg
    :target: https://pypi.python.org/pypi/py-heat
