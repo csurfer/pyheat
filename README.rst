@@ -1,7 +1,7 @@
 pyheat
 ======
 
-|pypiv| |pyv| |Licence| |Build Status| |Coverage Status|
+|pypiv| |pyv| |Licence| |Build Status| |Coverage Status| |Thanks|
 
 Profilers are extremely helpful tools. They help us dig deep into code,
 find and understand performance bottlenecks. But sometimes we just want
@@ -95,6 +95,9 @@ If you found the utility helpful you can buy me a cup of coffee using
 
 .. |Donate| image:: https://www.paypalobjects.com/webstatic/en_US/i/btn/png/silver-pill-paypal-44px.png
    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3BSBW7D45C4YN&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
+
+.. |Thanks| image:: https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg
+   :target: https://saythanks.io/to/csurfer
 
 .. _issue tracker: https://github.com/csurfer/pyheat/issues
 
