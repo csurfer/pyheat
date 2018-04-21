@@ -33,9 +33,10 @@ def main():
     # Create command line parser.
     parser = argparse.ArgumentParser()
     # Adding command line arguments.
-    parser.add_argument('-o', '--out', help='Output file', default=None)
-    parser.add_argument('pyfile', help='Python file to be profiled',
-                        default=None)
+    parser.add_argument("-o", "--out", help="Output file", default=None)
+    parser.add_argument(
+        "pyfile", help="Python file to be profiled", default=None
+    )
     # Parse command line arguments.
     arguments = parser.parse_args()
     if arguments.pyfile is not None:
@@ -49,5 +50,5 @@ def main():
         parser.print_help()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

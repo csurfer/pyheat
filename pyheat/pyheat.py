@@ -64,13 +64,14 @@ class PyHeat(object):
 
     def close_heatmap(self):
         """Method to close the heatmap display created."""
-        plt.close('all')
+        plt.close("all")
 
     def __profile_file(self):
         """Method used to profile the given file line by line."""
         self.line_profiler = pprofile.Profile()
         self.line_profiler.runfile(
-            open(self.pyfile.path, 'r'), {}, self.pyfile.path)
+            open(self.pyfile.path, "r"), {}, self.pyfile.path
+        )
 
     def __get_line_profile_data(self):
         """Method to procure line profiles.
@@ -80,16 +81,17 @@ class PyHeat(object):
         """
         if self.line_profiler is None:
             return {}
+
         return self.line_profiler.file_dict[self.pyfile.path].line_dict
 
     def __fetch_heatmap_data_from_profile(self):
         """Method to create heatmap data from profile information."""
         # Read lines from file.
-        with open(self.pyfile.path, 'r') as file_to_read:
+        with open(self.pyfile.path, "r") as file_to_read:
             for line in file_to_read:
                 # Remove return char from the end of the line and add a
                 # space in the beginning for better visibility.
-                self.pyfile.lines.append('  ' + line.strip('\n'))
+                self.pyfile.lines.append("  " + line.strip("\n"))
 
         # Total number of lines in file.
         self.pyfile.length = len(self.pyfile.lines)
@@ -115,7 +117,7 @@ class PyHeat(object):
         height = len(self.pyfile.lines) / 3
         width = max(map(lambda x: len(x), self.pyfile.lines)) / 8
         _, ax = plt.subplots(figsize=(width, height))
-        heatmap = ax.pcolor(self.pyfile.data, cmap='OrRd')
+        heatmap = ax.pcolor(self.pyfile.data, cmap="OrRd")
 
         # X Axis
         # Remove X axis.
@@ -144,8 +146,8 @@ class PyHeat(object):
                 color = (1.0, 1.0, 1.0)  # White text
             else:
                 color = (0.0, 0.0, 0.0)  # Black text
-            plt.text(0.0, i + 0.5, line, ha='left', va='center', color=color)
+            plt.text(0.0, i + 0.5, line, ha="left", va="center", color=color)
 
         # Define legend
         cbar = plt.colorbar(heatmap)
-        cbar.set_label('# of seconds')
+        cbar.set_label("# of seconds")

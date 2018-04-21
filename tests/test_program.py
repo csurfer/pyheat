@@ -8,7 +8,7 @@ def powfun(a, b):
 
 def powop(a, b):
     """Method to raise a to power b using ** operator."""
-    return a**b
+    return a ** b
 
 
 def powmodexp(a, b):
@@ -31,5 +31,5 @@ def main():
     pow_modular_exponentiation = powmodexp(a, b)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
