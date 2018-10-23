@@ -82,7 +82,7 @@ class PyHeat(object):
         if self.line_profiler is None:
             return {}
 
-        return self.line_profiler.file_dict[self.pyfile.path].line_dict
+        return self.line_profiler.file_dict[self.pyfile.path][0].line_dict
 
     def __fetch_heatmap_data_from_profile(self):
         """Method to create heatmap data from profile information."""
@@ -104,7 +104,8 @@ class PyHeat(object):
         arr = []
         for line_num in range(1, self.pyfile.length + 1):
             if line_num in line_profiles:
-                arr.append([line_profiles[line_num][-1]])
+                line_times = [ltime for _, ltime in line_profiles[line_num].values()]
+                arr.append([sum(line_times)])
             else:
                 arr.append([0.0])
 
