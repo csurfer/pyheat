@@ -82,7 +82,10 @@ class PyHeat(object):
         if self.line_profiler is None:
             return {}
 
-        return self.line_profiler.file_dict[self.pyfile.path].line_dict
+        # the [0] is because pprofile.Profile.file_dict stores the line_dict
+        # in a list so that it can be modified in a thread-safe way
+        # see https://github.com/vpelletier/pprofile/blob/da3d60a1b59a061a0e2113bf768b7cb4bf002ccb/pprofile.py#L398
+        return self.line_profiler.file_dict[self.pyfile.path][0].line_dict
 
     def __fetch_heatmap_data_from_profile(self):
         """Method to create heatmap data from profile information."""
@@ -104,7 +107,11 @@ class PyHeat(object):
         arr = []
         for line_num in range(1, self.pyfile.length + 1):
             if line_num in line_profiles:
-                arr.append([line_profiles[line_num][-1]])
+                # line_profiles[i] will have multiple entries if line i is
+                # invoked from multiple places in the code. Here we sum over
+                # each invocation to get the total time spent on that line.
+                line_times = [ltime for _, ltime in line_profiles[line_num].values()]
+                arr.append([sum(line_times)])
             else:
                 arr.append([0.0])
 
