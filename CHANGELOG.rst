@@ -1,5 +1,10 @@
 Release History
-=============
+===============
+
+v0.0.3
+------
+* Fix for upstream pprofile changes thanks to @hinnefe2.
+
 
 v0.0.2
 ------
