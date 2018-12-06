@@ -19,7 +19,7 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 
 ## Scroll Demo
 
-![ScrollDemo](https://i.imgur.com/cWr1MW3.gif)
+![ScrollDemo](https://i.imgur.com/5IdH8AG.gif)
 
 ## Features
 

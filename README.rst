@@ -122,7 +122,7 @@ If you found the utility helpful you can buy me a cup of coffee using
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
 
-.. |ScrollDemo| image:: https://i.imgur.com/cWr1MW3.gif
+.. |ScrollDemo| image:: https://i.imgur.com/5IdH8AG.gif
 
 .. |pypiv| image:: https://img.shields.io/pypi/v/py-heat.svg
    :target: https://pypi.python.org/pypi/py-heat

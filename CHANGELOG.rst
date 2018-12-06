@@ -1,6 +1,10 @@
 Release History
 ===============
 
+v0.0.5 - v0.0.6
+---------------
+* Include scroll demo and minor corrections.
+
 v0.0.4
 ------
 * Add scroll bar to allow for viewing large py files using scroll bar.
