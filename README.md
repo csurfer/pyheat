@@ -23,6 +23,7 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 - No complicated setup.
 - Heatmap visualization to view hot zones in code.
 - Ability to export the heatmap as an image file.
+- Ability to scroll, to help view heatmap of large py files.
 
 ## Setup
 

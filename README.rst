@@ -27,6 +27,8 @@ Features
 
 * Ability to export the heatmap as an image file.
 
+* Ability to scroll, to help view heatmap of large py files.
+
 Setup
 -----
 

@@ -1,6 +1,11 @@
 Release History
 ===============
 
+v0.0.4
+------
+* Add scroll bar to allow for viewing large py files using scroll bar.
+
+
 v0.0.3
 ------
 * Fix for upstream pprofile changes thanks to @hinnefe2.
