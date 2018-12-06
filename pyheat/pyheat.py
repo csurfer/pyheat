@@ -10,6 +10,7 @@ the most time consuming parts of the file.
 import matplotlib.pyplot as plt
 import numpy as np
 import pprofile
+from matplotlib.widgets import Slider
 
 
 class PyHeat(object):
@@ -49,15 +50,28 @@ class PyHeat(object):
         # Create heatmap.
         self.__create_heatmap_plot()
 
-    def show_heatmap(self, blocking=True, output_file=None):
+    def show_heatmap(self, blocking=True, output_file=None, enable_scroll=False):
         """Method to actually display the heatmap created.
 
             @param blocking: When set to False makes an unblocking plot show.
             @param output_file: If not None the heatmap image is output to this
             file. Supported formats: (eps, pdf, pgf, png, ps, raw, rgba, svg,
             svgz)
+            @param enable_scroll: Flag used add a scroll bar to scroll long files.
         """
         if output_file is None:
+            if enable_scroll:
+                # Add a new axes which will be used as scroll bar.
+                axpos = plt.axes([0.12, 0.1, 0.625, 0.03])
+                spos = Slider(axpos, "Scroll", 10, len(self.pyfile.lines))
+
+                def update(val):
+                    """Method to update position when slider is moved."""
+                    pos = spos.val
+                    self.ax.axis([0, 1, pos, pos - 10])
+                    self.fig.canvas.draw_idle()
+
+                spos.on_changed(update)
             plt.show(block=blocking)
         else:
             plt.savefig(output_file)
@@ -110,7 +124,9 @@ class PyHeat(object):
                 # line_profiles[i] will have multiple entries if line i is
                 # invoked from multiple places in the code. Here we sum over
                 # each invocation to get the total time spent on that line.
-                line_times = [ltime for _, ltime in line_profiles[line_num].values()]
+                line_times = [
+                    ltime for _, ltime in line_profiles[line_num].values()
+                ]
                 arr.append([sum(line_times)])
             else:
                 arr.append([0.0])
@@ -123,22 +139,27 @@ class PyHeat(object):
         # Define the heatmap plot.
         height = len(self.pyfile.lines) / 3
         width = max(map(lambda x: len(x), self.pyfile.lines)) / 8
-        _, ax = plt.subplots(figsize=(width, height))
-        heatmap = ax.pcolor(self.pyfile.data, cmap="OrRd")
+        self.fig, self.ax = plt.subplots(figsize=(width, height))
+
+        # Set second sub plot to occupy bottom 20%
+        plt.subplots_adjust(bottom=0.20)
+
+        # Heat scale orange to red
+        heatmap = self.ax.pcolor(self.pyfile.data, cmap="OrRd")
 
         # X Axis
         # Remove X axis.
-        ax.xaxis.set_visible(False)
+        self.ax.xaxis.set_visible(False)
 
         # Y Axis
         # Create lables for y-axis ticks
         row_labels = range(1, self.pyfile.length + 1)
         # Set y-tick labels.
-        ax.set_yticklabels(row_labels, minor=False)
+        self.ax.set_yticklabels(row_labels, minor=False)
         # Put y-axis major ticks at the middle of each cell.
-        ax.set_yticks(np.arange(self.pyfile.data.shape[0]) + 0.5, minor=False)
+        self.ax.set_yticks(np.arange(self.pyfile.data.shape[0]) + 0.5, minor=False)
         # Inver y-axis to have top down line numbers
-        ax.invert_yaxis()
+        self.ax.invert_yaxis()
 
         # Plot definitions
         # Set plot y-axis label.
@@ -153,7 +174,15 @@ class PyHeat(object):
                 color = (1.0, 1.0, 1.0)  # White text
             else:
                 color = (0.0, 0.0, 0.0)  # Black text
-            plt.text(0.0, i + 0.5, line, ha="left", va="center", color=color)
+            plt.text(
+                0.0,
+                i + 0.5,
+                line,
+                ha="left",
+                va="center",
+                color=color,
+                clip_on=True,
+            )
 
         # Define legend
         cbar = plt.colorbar(heatmap)

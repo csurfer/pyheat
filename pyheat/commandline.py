@@ -43,7 +43,7 @@ def main():
         # Core functionality.
         pyheat = PyHeat(arguments.pyfile)
         pyheat.create_heatmap()
-        pyheat.show_heatmap(output_file=arguments.out)
+        pyheat.show_heatmap(output_file=arguments.out, enable_scroll=True)
         pyheat.close_heatmap()
     else:
         # Print command help
