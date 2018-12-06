@@ -17,6 +17,10 @@ So, instead of presenting the data in tabular form, if presented as a heatmap vi
 
 ![Demo](http://i.imgur.com/qOeXUPR.png)
 
+## Scroll Demo
+
+![ScrollDemo](https://i.imgur.com/cWr1MW3.gif)
+
 ## Features
 
 - Simple CLI interface.

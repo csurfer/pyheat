@@ -14,7 +14,15 @@ heatmap visualization, it makes comprehending the time distribution in
 the given program much easier and quicker. That is exactly what is being
 done here !
 
+Demo
+----
+
 |Demo|
+
+Scroll Demo
+-----------
+
+|ScrollDemo|
 
 Features
 --------
@@ -113,6 +121,8 @@ If you found the utility helpful you can buy me a cup of coffee using
     :target: https://coveralls.io/github/csurfer/pyheat?branch=master
 
 .. |Demo| image:: http://i.imgur.com/qOeXUPR.png
+
+.. |ScrollDemo| image:: https://i.imgur.com/cWr1MW3.gif
 
 .. |pypiv| image:: https://img.shields.io/pypi/v/py-heat.svg
    :target: https://pypi.python.org/pypi/py-heat
