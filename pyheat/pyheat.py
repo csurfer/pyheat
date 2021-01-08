@@ -154,10 +154,10 @@ class PyHeat(object):
         # Y Axis
         # Create lables for y-axis ticks
         row_labels = range(1, self.pyfile.length + 1)
-        # Set y-tick labels.
-        self.ax.set_yticklabels(row_labels, minor=False)
         # Put y-axis major ticks at the middle of each cell.
         self.ax.set_yticks(np.arange(self.pyfile.data.shape[0]) + 0.5, minor=False)
+        # Set y-tick labels.
+        self.ax.set_yticklabels(row_labels, minor=False)
         # Inver y-axis to have top down line numbers
         self.ax.invert_yaxis()
 
