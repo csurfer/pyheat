@@ -15,18 +15,18 @@ from matplotlib.widgets import Slider
 
 class PyHeat(object):
     """Class to display the python file provided as a heatmap highlighting the
-       most time consuming parts of the file.
+    most time consuming parts of the file.
     """
 
     class FileDetails(object):
         """Class to keep track of useful file related details used in creating
-           heatmaps.
+        heatmaps.
         """
 
         def __init__(self, filepath):
             """Constructor.
 
-               @param filepath: Path of the file to profile.
+            @param filepath: Path of the file to profile.
             """
             self.path = filepath
             self.lines = []
@@ -36,7 +36,7 @@ class PyHeat(object):
     def __init__(self, filepath):
         """Constructor.
 
-           @param filepath: Path of the file to profile.
+        @param filepath: Path of the file to profile.
         """
         self.pyfile = PyHeat.FileDetails(filepath)
         self.line_profiler = None
@@ -53,17 +53,17 @@ class PyHeat(object):
     def show_heatmap(self, blocking=True, output_file=None, enable_scroll=False):
         """Method to actually display the heatmap created.
 
-            @param blocking: When set to False makes an unblocking plot show.
-            @param output_file: If not None the heatmap image is output to this
-            file. Supported formats: (eps, pdf, pgf, png, ps, raw, rgba, svg,
-            svgz)
-            @param enable_scroll: Flag used add a scroll bar to scroll long files.
+        @param blocking: When set to False makes an unblocking plot show.
+        @param output_file: If not None the heatmap image is output to this
+        file. Supported formats: (eps, pdf, pgf, png, ps, raw, rgba, svg,
+        svgz)
+        @param enable_scroll: Flag used add a scroll bar to scroll long files.
         """
         if output_file is None:
             if enable_scroll:
                 # Add a new axes which will be used as scroll bar.
                 axpos = plt.axes([0.12, 0.1, 0.625, 0.03])
-                spos = Slider(axpos, "Scroll", 10, len(self.pyfile.lines))
+                spos = Slider(axpos, 'Scroll', 10, len(self.pyfile.lines))
 
                 def update(val):
                     """Method to update position when slider is moved."""
@@ -78,20 +78,18 @@ class PyHeat(object):
 
     def close_heatmap(self):
         """Method to close the heatmap display created."""
-        plt.close("all")
+        plt.close('all')
 
     def __profile_file(self):
         """Method used to profile the given file line by line."""
         self.line_profiler = pprofile.Profile()
-        self.line_profiler.runfile(
-            open(self.pyfile.path, "r"), {}, self.pyfile.path
-        )
+        self.line_profiler.runfile(open(self.pyfile.path, 'r'), {}, self.pyfile.path)
 
     def __get_line_profile_data(self):
         """Method to procure line profiles.
 
-           @return: Line profiles if the file has been profiles else empty
-           dictionary.
+        @return: Line profiles if the file has been profiles else empty
+        dictionary.
         """
         if self.line_profiler is None:
             return {}
@@ -104,11 +102,11 @@ class PyHeat(object):
     def __fetch_heatmap_data_from_profile(self):
         """Method to create heatmap data from profile information."""
         # Read lines from file.
-        with open(self.pyfile.path, "r") as file_to_read:
+        with open(self.pyfile.path, 'r') as file_to_read:
             for line in file_to_read:
                 # Remove return char from the end of the line and add a
                 # space in the beginning for better visibility.
-                self.pyfile.lines.append("  " + line.strip("\n"))
+                self.pyfile.lines.append('  ' + line.strip('\n'))
 
         # Total number of lines in file.
         self.pyfile.length = len(self.pyfile.lines)
@@ -124,9 +122,7 @@ class PyHeat(object):
                 # line_profiles[i] will have multiple entries if line i is
                 # invoked from multiple places in the code. Here we sum over
                 # each invocation to get the total time spent on that line.
-                line_times = [
-                    ltime for _, ltime in line_profiles[line_num].values()
-                ]
+                line_times = [ltime for _, ltime in line_profiles[line_num].values()]
                 arr.append([sum(line_times)])
             else:
                 arr.append([0.0])
@@ -145,7 +141,7 @@ class PyHeat(object):
         plt.subplots_adjust(bottom=0.20)
 
         # Heat scale orange to red
-        heatmap = self.ax.pcolor(self.pyfile.data, cmap="OrRd")
+        heatmap = self.ax.pcolor(self.pyfile.data, cmap='OrRd')
 
         # X Axis
         # Remove X axis.
@@ -163,7 +159,7 @@ class PyHeat(object):
 
         # Plot definitions
         # Set plot y-axis label.
-        plt.ylabel("Line Number")
+        plt.ylabel('Line Number')
         # Annotate each cell with lines in file in order.
         max_time_spent_on_a_line = max(self.pyfile.data)
         for i, line in enumerate(self.pyfile.lines):
@@ -178,12 +174,12 @@ class PyHeat(object):
                 0.0,
                 i + 0.5,
                 line,
-                ha="left",
-                va="center",
+                ha='left',
+                va='center',
                 color=color,
                 clip_on=True,
             )
 
         # Define legend
         cbar = plt.colorbar(heatmap)
-        cbar.set_label("# of seconds")
+        cbar.set_label('# of seconds')
