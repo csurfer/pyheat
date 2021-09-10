@@ -31,5 +31,5 @@ def main():
     pow_modular_exponentiation = powmodexp(a, b)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

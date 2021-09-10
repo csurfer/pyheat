@@ -16,10 +16,9 @@ from pyheat import PyHeat
 
 
 class PyHeatTest(unittest.TestCase):
-
     def setUp(self):
         data_path = os.path.dirname(os.path.realpath(__file__))
-        self.pyheat = PyHeat(data_path + "/test_program.py")
+        self.pyheat = PyHeat(data_path + '/test_program.py')
 
     def test_pyheat_show(self):
         """Basic test to check pyheat class works end to end."""
@@ -30,5 +29,5 @@ class PyHeatTest(unittest.TestCase):
         self.pyheat.close_heatmap()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
