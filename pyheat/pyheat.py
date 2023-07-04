@@ -23,7 +23,7 @@ class PyHeat(object):
         heatmaps.
         """
 
-        def __init__(self, filepath):
+        def __init__(self, filepath, argv):
             """Constructor.
 
             @param filepath: Path of the file to profile.
@@ -32,13 +32,14 @@ class PyHeat(object):
             self.lines = []
             self.length = 0
             self.data = None
+            self.argv = [filepath] + argv
 
-    def __init__(self, filepath):
+    def __init__(self, filepath, argv):
         """Constructor.
 
         @param filepath: Path of the file to profile.
         """
-        self.pyfile = PyHeat.FileDetails(filepath)
+        self.pyfile = PyHeat.FileDetails(filepath, argv)
         self.line_profiler = None
 
     def create_heatmap(self):
@@ -83,7 +84,7 @@ class PyHeat(object):
     def __profile_file(self):
         """Method used to profile the given file line by line."""
         self.line_profiler = pprofile.Profile()
-        self.line_profiler.runfile(open(self.pyfile.path, 'r'), {}, self.pyfile.path)
+        self.line_profiler.runfile(open(self.pyfile.path, 'r'), self.pyfile.argv, self.pyfile.path)
 
     def __get_line_profile_data(self):
         """Method to procure line profiles.
