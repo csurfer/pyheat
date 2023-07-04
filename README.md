@@ -51,8 +51,10 @@ python pyheat/setup.py install
 ```bash
 # To view the heatmap.
 pyheat <path_to_python_file>
+# To view the heatmap of a script with arguments.
+pyheat <path_to_python_file> [arg1 arg2 ...]
 # To output the heatmap as a file.
-pyheat <path_to_python_file> --out image_file.png
+pyheat --out image_file.png <path_to_python_file>
 pyheat --help
 ```
 
@@ -60,7 +62,9 @@ pyheat --help
 
 ```python
 from pyheat import PyHeat
-ph = PyHeat(<file_path>)
+# PyHeat initializer takes two arguments: script name and the
+# list of command line arguments which can be possibly empty.
+ph = PyHeat(<file_path>, [arg1, arg2, ...])
 ph.create_heatmap()
 # To view the heatmap.
 ph.show_heatmap()
